@@ -21,3 +21,4 @@ export const getAllUser = async(req,res)=>{
         res.status(500).json(error)
     }
 }
+

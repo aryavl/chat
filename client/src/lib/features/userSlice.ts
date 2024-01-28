@@ -17,6 +17,14 @@ type InitialStateProp = {
     __v: number;
     updatedAt: string;
   }[];
+  selectedUser:{
+    name: string;
+    email: string;
+    _id: string;
+    createdAt: string;
+    __v: number;
+    updatedAt: string;
+  }
 };
 
 const initialState: InitialStateProp = {
@@ -29,6 +37,14 @@ const initialState: InitialStateProp = {
     createdAt: "",
   },
   userList: [],
+  selectedUser:{
+    name: '',
+    email: '',
+    _id: "",
+    createdAt: '',
+    __v: 0,
+    updatedAt: ''
+  }
 };
 
 export const userSlice = createSlice({
@@ -40,6 +56,9 @@ export const userSlice = createSlice({
     },
     setUserList:(state, action:PayloadAction<InitialStateProp["userList"]>)=>{
         state.userList = action.payload
+    },
+    setSelectedUser:(state,action:PayloadAction<InitialStateProp["selectedUser"]>)=>{
+        state.selectedUser = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -59,6 +78,6 @@ export const userListAsync = createAsyncThunk(
   }
 )as any;
 
-export const { setUser ,setUserList} = userSlice.actions;
+export const { setUser ,setUserList,setSelectedUser} = userSlice.actions;
 
 export default userSlice.reducer;

@@ -22,6 +22,13 @@ export const getMessage = async(req,res)=>{
     const { chatId} = req.params
     try {
         const result = await MessageModel.find({chatId})
+        console.log(result);
+        // const result = await MessageModel.aggregate([
+        //     {
+        //         $match:{chatId:chatId}
+        //     },
+        // ])
+        // console.log(result);
         res.status(200).json(result)
     } catch (error) {
         console.error("get message error ",error.message);

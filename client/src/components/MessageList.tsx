@@ -30,6 +30,8 @@ const MessageList = ({
   const currentUser = useStateUseSelector(
     (state: RootState) => state.user.user
   );
+  console.log(chat,"messge list");
+  
 
   useEffect(() => {
     const fetchMessage = async () => {

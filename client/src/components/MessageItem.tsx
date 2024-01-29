@@ -1,4 +1,5 @@
 import React from "react";
+import { format } from "timeago.js";
 interface Message {
   chatId: string;
   _id: string;
@@ -22,14 +23,14 @@ const MessageItem = ({
     hour12: true,
   });
   return (
-    <div className={`chat ${user ? "chat-end" : "chat-start"}`}>
+    <div className={`chat ${user ? "chat-start" : "chat-end"}`}>
       <div
         className={`chat-bubble ${
-          user ? "chat-bubble" : "chat-bubble-primary"
+          user ? "chat-bubble-primary " : "chat-bubble"
         }`}
       >
         {message.text}
-        <p className="text-xs ">{formattedTime}</p>
+        <p className="text-xs ">{format(message.createdAt)}</p>
       </div>
     </div>
   );

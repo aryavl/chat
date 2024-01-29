@@ -51,11 +51,18 @@ const Messages = () => {
           chats?
           <MessageList chat={chats}/>:
           (
-            <span className='loading loading-ring w-16'></span>
+            <span className='loading loading-ring w-16'> </span>
           )
         }
         {/* message input */}
-        <MessageInput/>
+        
+        {
+          chats?
+          <MessageInput chat={chats}/>:
+          (
+            <span className='loading loading-ring w-16'> </span>
+          )
+        }
     </div>
 </div>
   )

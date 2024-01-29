@@ -46,3 +46,23 @@ export const getSingleChat=async (currentUser:string,selectedUser:string) => {
       const result = await response.json();
       return result;
 }
+
+export const postMessage = async(data:{chatId:string,senderId:String,text:string})=>{
+    const response = await fetch("http://localhost:3003/message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chatId: data.chatId,
+          senderId: data.senderId,
+          text:data.text
+        }),
+      });
+      if (!response.ok) {
+        throw new Error(`Failed to post message . Status: ${response.status}`);
+      }
+      const result = await response.json();
+      return result;
+
+}

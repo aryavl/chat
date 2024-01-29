@@ -2,6 +2,7 @@
 import { useStateUseSelector } from '@/lib/hooks'
 import { RootState } from '@/lib/store'
 import React, { useEffect, useState } from 'react'
+import { PhoneIcon } from '@/utils/icons'
 
 const TopMessageBar = () => {
     const [isSelected,setIsSelected] = useState<boolean>(false)
@@ -37,6 +38,7 @@ const TopMessageBar = () => {
            <div className="divider my-0"></div>
 
            {/* Call button */}
+        {/* <PhoneIcon/> */}
            
          </div>
        </div>

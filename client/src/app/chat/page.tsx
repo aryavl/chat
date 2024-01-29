@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation'
 const Chat = () => {
 const router = useRouter()
 const user = useStateUseSelector((state:RootState)=>state.user.user)
+const selectedUser = useStateUseSelector((state:RootState)=>state.user.selectedUser)
 console.log(user);
 
 if(user.email === " "){
@@ -20,7 +21,8 @@ if(user.email === " "){
         {/* sidebar */}
         <SideNavbar/>
         {/* messages */}
-        <Messages/>
+        {selectedUser.email !== "" ? <Messages/>:(<div className='flex justify-center items-center m-auto text-xl'>Start new Conversation...</div>)}
+        {/* <Messages/> */}
       </div>
     </div>
   )

@@ -38,15 +38,7 @@ const Messages = () => {
     {/* Topbar */}
     <TopMessageBar />
     <div className={`max-w-sm md:max-w-3xl w-full mx-auto mt-auto mb-10 ${selectedUser?"":"md:hidden"}`}>
-        {/* messages list */} 
-        {/* {
-          chats?(
-            chats?.reverse()?.map((user:any)=><MessageList key={user._id}  chat={user}/>)
-            
-          ):(
-            <span className='loading loading-ring w-16'></span>
-          )
-        } */}
+        
         {
           chats?
           <MessageList chat={chats}/>:

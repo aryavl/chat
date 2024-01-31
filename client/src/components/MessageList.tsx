@@ -1,18 +1,15 @@
 "use client";
 import { chatFetcher, messageFetcher } from "@/helper/fetcher";
-import { useStateUseSelector } from "@/lib/hooks";
+import { useAppDispatch, useStateUseSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 import React, { useEffect, useState } from "react";
 import MessageItem from "./MessageItem";
+import { setMessages } from "@/lib/features/messageSlice";
 
 interface Message {
-  chatId: string;
-  _id: string;
   senderId: string;
+
   text: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
 }
 const MessageList = ({
   chat,
@@ -25,31 +22,55 @@ const MessageList = ({
     __v: number;
   };
 }) => {
-  const [messages, setMessages] = useState<Message[]>([]);
+  // const [messages, setMessages] = useState<Message[]>([]);
 
   const currentUser = useStateUseSelector(
     (state: RootState) => state.user.user
   );
-  console.log(chat,"messge list");
-  
+  const messages = useStateUseSelector(
+    (state: RootState) => state.message.messages
+  );
+  const dispatch = useAppDispatch();
+  console.log(messages, "messge list");
 
   useEffect(() => {
     const fetchMessage = async () => {
       try {
         const messageData: Message[] = await messageFetcher(chat._id);
         console.log(messageData);
-        setMessages(messageData);
+
+        // setMessages(messageData);
+        dispatch(setMessages(messageData));
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchMessage();
-  }, [currentUser, chat]);
+  }, [currentUser, chat, dispatch]);
 
   return (
     <div className="overflow-auto w-full mb-10 flex flex-col max-h-[75vh] no-scrollbar">
-      {messages
+       <div>
+        {messages.map((message, index) => {
+          let user = currentUser?._id === message?.senderId
+          return(
+          <div key={index}>
+            
+            <div className={`chat ${user ? "chat-start" : "chat-end"}`}>
+              <div
+                className={`chat-bubble ${
+                  user ? "chat-bubble-primary " : "chat-bubble"
+                }`}
+              >
+                {message.text}
+                {/* <p className="text-xs ">{format(message.createdAt)}</p> */}
+               </div> 
+            </div>
+          </div>
+        )})}
+      </div>
+      {/* {messages
         ? messages.map((item: Message, i: number) => {
             return (
               <div key={i}>
@@ -60,7 +81,7 @@ const MessageList = ({
               </div>
             );
           })
-        : ""}
+        : ""}  */}
     </div>
   );
 };

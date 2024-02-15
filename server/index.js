@@ -15,7 +15,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/login',userRouter)
 app.use('/chat',chatRouter) 
 app.use('/message',messageRouter)
-
+app.get("/",(req,res)=>{
+res.json({message:"hi"})
+})
 mongoose.connect(process.env.MONGO_URL)
 
 const db= mongoose.connection

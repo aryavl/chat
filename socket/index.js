@@ -96,10 +96,15 @@ io.on('connection', (socket) => {
       senderId,
       text,
     };
-    activeChats[chatId].push(message);
+    const uniqueChatId = activeChats.find(item=>item.chatId === chatId)
+    if(!uniqueChatId){
 
-    // Broadcast the array of messages to everyone in the chat room
-    io.to(chatId).emit('receive-message', activeChats[chatId]);
+      activeChats[chatId].push(message);
+      // Broadcast the array of messages to everyone in the chat room
+      io.to(chatId).emit('receive-message', activeChats[chatId]);
+    }
+
+
   });
 });
 

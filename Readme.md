@@ -6,10 +6,8 @@ This repository contains a chat application project that enables users to commun
 
 ## Demo video
 
-<video width="640" height="360" controls autoplay>
-  <source src="/chatapp.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+[Click here to watch the demo video](/chatapp.mp4)
 
 ## Project Structure
 

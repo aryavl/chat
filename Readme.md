@@ -6,8 +6,8 @@ This repository contains a chat application project that enables users to commun
 
 ## Demo video
 
-
-[Click here to watch the demo video](/chatapp.mp4)
+![Chat Application Demo Gif](/chatappvideo.mp4)
+[Click here to watch the demo video](/chatappvideo.mp4)
 
 ## Project Structure
 

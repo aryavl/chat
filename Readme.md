@@ -4,7 +4,12 @@ This repository contains a chat application project that enables users to commun
 
 ![Chat Application Homepage](/chatapp.png)
 
-[![Chat Application Demo Video](/chatapp.png)](/chatapp.mp4)
+## Demo video
+
+<video width="640" height="360" controls autoplay>
+  <source src="/chatapp.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Project Structure
 

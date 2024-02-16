@@ -67,4 +67,4 @@ To run the project locally, follow these steps:
 
 ## Contributors
 
-- [Your Name](https://github.com/yourusername)
+- [Arya V L](https://github.com/aryavl)

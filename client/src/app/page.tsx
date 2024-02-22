@@ -10,12 +10,15 @@ import Link from "next/link";
 export default function Home() {
   const currentTheme = useStateUseSelector((state: RootState) => state.theme.currentTheme);
   const dispatch = useAppDispatch<AppDispatch>();
+console.log(currentTheme);
 
   return (
     <>
     
+
         
-    <div className={`${currentTheme} h-[100vh] pt-16`}>
+   
+        <div className={`${currentTheme} h-[100vh] pt-16`}>
         {currentTheme === "dark" ? (
           <>
       <div className={`w-[40%] h-[60%]  bg-[#190920]  z-[1000000] relative flex items-center justify-center flex-col mx-auto`}>

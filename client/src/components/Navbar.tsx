@@ -2,6 +2,8 @@
 import { toggleTheme } from "@/lib/features/themeSlice";
 import { useAppDispatch, useStateUseSelector } from "@/lib/hooks";
 import { AppDispatch, RootState } from "@/lib/store";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
@@ -30,9 +32,11 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
+                <Image
                   alt="Tailwind CSS Navbar component"
                   src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  width={100}
+                  height={100}
                 />
               </div>
             </div>
@@ -80,7 +84,7 @@ const Navbar = () => {
               </li>
 
               <li>
-                <a>Logout</a>
+                <Link href="/">Logout</Link>
               </li>
             </ul>
           </div>

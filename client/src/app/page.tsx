@@ -15,6 +15,9 @@ console.log(currentTheme);
   return (
     <>
     
+
+        
+   
         <div className={`${currentTheme} h-[100vh] pt-16`}>
         {currentTheme === "dark" ? (
           <>
